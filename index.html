@@ -1,1 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veenzoxx — Portfolio</title>
 
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #061018;
+  color: white;
+  overflow-x: hidden;
+}
+
+header {
+  padding: 22px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #050b11;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.logo span {
+  color: #42c9f5;
+}
+
+nav a {
+  color: #dce7ed;
+  text-decoration: none;
+  margin-left: 22px;
+  font-weight: 600;
+}
+
+.hero {
+  min-height: 650px;
+  padding: 90px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  background:
+    radial-gradient(circle at 80% 20%, rgba(48,194,239,.18), transparent 35%),
+    linear-gradient(135deg,#061018,#092b3b);
+}
+
+.hero-text {
+  max-width: 650px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 9px 15px;
+  border-radius: 30px;
+  background: rgba(66,201,245,.12);
+  color: #59d4ff;
+  border: 1px solid rgba(66,201,245,.25);
+  margin-bottom: 22px;
+}
+
+h1 {
+  font-size: clamp(48px,8vw,90px);
+  line-height: .95;
+  margin-bottom: 25px;
+}
+
+h1 span {
+  color: #42c9f5;
+}
+
+.hero p {
+  font-size: 19px;
+  color: #a9bbc5;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 16px 25px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: .2s;
+}
+
+.btn-primary {
+  background: #4bcaf4;
+  color: #031018;
+}
+
+.btn-secondary {
+  border: 1px solid #193b4b;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.profile {
+  width: 310px;
+  height: 310px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #42c9f5;
+  box-shadow: 0 0 70px rgba(66,201,245,.25);
+}
+
+section {
+  padding: 90px 7%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+.section-title p {
+  color: #8fa5af;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 22px;
+}
+
+.card {
+  background: #0b1c27;
+  border: 1px solid #173441;
+  padding: 30px;
+  border-radius: 22px;
+  transition: .25s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: #42c9f5;
+}
+
+.icon {
+  font-size: 35px;
+  margin-bottom: 18px;
+}
+
+.card h3 {
+  font-size: 22px;
+  margin-bottom: 12px;
+}
+
+.card p {
+  color: #91a6b0;
+  line-height: 1.6;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 25px;
+}
+
+.project {
+  padding: 35px;
+  min-height: 220px;
+  border-radius: 24px;
+  background: linear-gradient(145deg,#0c202c,#08151d);
+  border: 1px solid #173441;
+}
+
+.project small {
+  color: #42c9f5;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.project h3 {
+  font-size: 30px;
+  margin: 15px 0;
+}
+
+.project p {
+  color: #96aab4;
+  line-height: 1.6;
+}
+
+.contact {
+  text-align: center;
+  background: #07151e;
+}
+
+.contact h2 {
+  font-size: 42px;
+  margin-bottom: 18px;
+}
+
+.contact p {
+  color: #9eb1ba;
+  margin-bottom: 30px;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  color: #718690;
+  background: #040a0f;
+}
+
+@media(max-width:800px) {
+  header {
+    padding: 18px 5%;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .hero {
+    padding: 70px 6%;
+    text-align: center;
+    flex-direction: column-reverse;
+  }
+
+  .profile {
+    width: 230px;
+    height: 230px;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  section {
+    padding: 70px 6%;
+  }
+
+  .services,
+  .projects {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title h2,
+  .contact h2 {
+    font-size: 34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Veenz<span>oxx</span></div>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#projets">Projets</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <div class="hero-text">
+
+    <div class="badge">VEENZOXX / PORTFOLIO</div>
+
+    <h1>
+      Je crée.<br>
+      Tu <span>brilles.</span>
+    </h1>
+
+    <p>
+      Monteur vidéo et créateur de contenu spécialisé dans
+      l'univers gaming et les réseaux sociaux.
+      Je transforme tes idées en contenus dynamiques et modernes.
+    </p>
+
+    <div class="buttons">
+      <a href="#projets" class="btn btn-primary">
+        Voir mes projets
+      </a>
+
+      <a href="#contact" class="btn btn-secondary">
+        Me contacter
+      </a>
+    </div>
+
+  </div>
+
+  <img
+    src="profil.jpg"
+    alt="Photo de profil Veenzoxx"
+    class="profile"
+  >
+
+</section>
+
+<section id="services">
+
+  <div class="section-title">
+    <h2>Mes services</h2>
+    <p>Ce que je peux réaliser pour toi.</p>
+  </div>
+
+  <div class="services">
+
+    <div class="card">
+      <div class="icon">🎬</div>
+      <h3>Montage vidéo</h3>
+      <p>
+        Montage dynamique pour YouTube, Shorts,
+        TikTok et contenus gaming.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🖼️</div>
+      <h3>Miniatures</h3>
+      <p>
+        Création de miniatures modernes pensées
+        pour attirer l'attention et augmenter les clics.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🎮</div>
+      <h3>Contenu gaming</h3>
+      <p>
+        Création et amélioration de contenus
+        autour de Fortnite et du gaming.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section id="projets">
+
+  <div class="section-title">
+    <h2>Mes projets</h2>
+    <p>Une sélection de mes réalisations.</p>
+  </div>
+
+  <div class="projects">
+
+    <div class="project">
+      <small>01 — MONTAGE</small>
+      <h3>Édit Gaming</h3>
+      <p>
+        Montage orienté gaming avec rythme,
+        transitions et effets adaptés aux formats courts.
+      </p>
+    </div>
+
+    <div class="project">
+      <small>02 — YOUTUBE</small>
+      <h3>Création de contenu</h3>
+      <p>
+        Création de contenus destinés aux chaînes
+        YouTube et aux réseaux sociaux.
+      </p>
+    </div>
+
+    <div class="project">
+      <small>03 — DESIGN</small>
+      <h3>Identité visuelle</h3>
+      <p>
+        Designs et éléments visuels pour renforcer
+        l'identité d'un créateur.
+      </p>
+    </div>
+
+    <div class="project">
+      <small>04 — SHORTS</small>
+      <h3>Formats courts</h3>
+      <p>
+        Contenus courts conçus pour capter
+        rapidement l'attention du spectateur.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<section class="contact" id="contact">
+
+  <h2>Un projet ?</h2>
+
+  <p>
+    Tu veux travailler avec moi ? Contacte-moi
+    et parlons de ton projet.
+  </p>
+
+  <div class="buttons">
+    <a
+      href="mailto:contact@veenzoxx.fr"
+      class="btn btn-primary"
+    >
+      Me contacter
+    </a>
+  </div>
+
+</section>
+
+<footer>
+  © 2026 Veenzoxx — Tous droits réservés.
+</footer>
+
+</body>
+  </html>
