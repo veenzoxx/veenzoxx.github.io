@@ -635,10 +635,9 @@ const moyenne = avis.length
 // Afficher la moyenne
 const moyenneElement = document.getElementById("note-moyenne");
 
-if (moyenneElement) {
-    moyenneElement.innerHTML =
-        `⭐ ${moyenne.toFixed(1).replace(".", ",")} / 5 <span style="font-size:16px;font-weight:normal;">(${avis.length} avis)</span>`;
-}
+moyenneElement.innerHTML =
+    "⭐ " + moyenne.toFixed(1).replace(".", ",") +
+    " / 5 (" + avis.length + " avis)";
 
 // Afficher les avis
 liste.innerHTML = avis.map(a =>
