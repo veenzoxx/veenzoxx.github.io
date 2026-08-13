@@ -512,7 +512,56 @@ footer {
 
 </section>
 
-<footer>
+<section id="avis" style="padding:80px 20px; max-width:900px; margin:auto;">
+
+    <div class="section-title">
+        <h2>Avis</h2>
+        <p>Les avis de mes clients</p>
+    </div>
+
+    <div style="background:#111827; padding:25px; border-radius:15px; margin-top:30px;">
+
+        <h3>Laisser un avis</h3>
+
+        <input
+            id="avis-nom"
+            type="text"
+            placeholder="Ton nom"
+            style="width:100%; padding:12px; margin:10px 0; border-radius:8px; border:none;"
+        >
+
+        <select
+            id="avis-note"
+            style="width:100%; padding:12px; margin:10px 0; border-radius:8px; border:none;"
+        >
+            <option value="5">⭐⭐⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="1">⭐</option>
+        </select>
+
+        <textarea
+            id="avis-commentaire"
+            placeholder="Écris ton avis..."
+            style="width:100%; padding:12px; margin:10px 0; border-radius:8px; border:none; min-height:100px;"
+        ></textarea>
+
+        <button
+            onclick="envoyerAvis()"
+            style="padding:12px 25px; border:none; border-radius:8px; cursor:pointer;"
+        >
+            Envoyer mon avis
+        </button>
+
+        <p id="avis-message"></p>
+
+    </div>
+
+    <div id="liste-avis" style="margin-top:30px;"></div>
+
+</section>
+  <footer>
   © 2026 Veenzoxx — Tous droits réservés.
 </footer>
 
