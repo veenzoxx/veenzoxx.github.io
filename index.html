@@ -624,17 +624,30 @@ async function chargerAvis() {
 
     if (!response.ok) return;
 
-    const avis = await response.json();
-    const liste = document.getElementById("liste-avis");
+const avis = await response.json();
+const liste = document.getElementById("liste-avis");
 
-    liste.innerHTML = avis.map(a => `
-        <div style="background:#111827;padding:20px;border-radius:15px;margin-bottom:15px;">
-            <strong>${a.nom}</strong>
-            <div>${"⭐".repeat(a.note)}</div>
-            <p>${a.commentaire}</p>
-        </div>
-    `).join("");
+// Calcul de la moyenne
+const moyenne = avis.length
+    ? avis.reduce((total, a) => total + Number(a.note), 0) / avis.length
+    : 0;
+
+// Afficher la moyenne
+const moyenneElement = document.getElementById("note-moyenne");
+
+if (moyenneElement) {
+    moyenneElement.innerHTML =
+        `⭐ ${moyenne.toFixed(1).replace(".", ",")} / 5 <span style="font-size:16px;font-weight:normal;">(${avis.length} avis)</span>`;
 }
+
+// Afficher les avis
+liste.innerHTML = avis.map(a =>
+    `<div style="background:#111827;padding:20px;border-radius:15px;margin-bottom:15px;">
+        <strong>${a.nom}</strong>
+        <div>${"⭐".repeat(Number(a.note))}</div>
+        <p>${a.commentaire}</p>
+    </div>`
+).join("");
 
 chargerAvis();
 </script>
