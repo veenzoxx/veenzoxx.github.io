@@ -645,6 +645,12 @@ liste.innerHTML = avis.map(a =>
         <strong>${a.nom}</strong>
         <div>${"⭐".repeat(Number(a.note))}</div>
         <p>${a.commentaire}</p>
+
+        <button
+            onclick="supprimerAvis('${a.id}')"
+            style="margin-top:10px;padding:8px 14px;border:none;border-radius:8px;background:#ef4444;color:white;cursor:pointer;">
+            🗑️ Supprimer
+        </button>
     </div>`
 ).join("");
 }
