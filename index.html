@@ -638,9 +638,10 @@ async function supprimerAvis(id) {
         "https://zgrjcycwvgkhsmuzmsxp.supabase.co/rest/v1/avis?select=*&order=created_at.desc",
         {
             headers: {
-                "apikey": "sb_publishable_XwE7EXSp7wAAo3d0PgUTWQ_0yjuP-Tj",
-                "Authorization": "Bearer sb_publishable_XwE7EXSp7wAAo3d0PgUTWQ_0yjuP-Tj"
-            }
+    "apikey": "sb_publishable_XwE7EXSp7wAAo3d0PgUTWQ_0yjuP-Tj",
+    "Authorization": "Bearer " + SUPABASE_KEY,
+    "Prefer": "return=minimal"
+  }
         }
     );
 
