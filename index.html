@@ -611,7 +611,29 @@ async function envoyerAvis() {
     }
 }
 
-async function chargerAvis() {
+async function supprimerAvis(id) {
+    if (!confirm("Supprimer cet avis ?")) return;
+
+    const response = await fetch(
+        "https://zgrjcycwvghksmuzmsxp.supabase.co/rest/v1/avis?id=eq." + id,
+        {
+            method: "DELETE",
+            headers: {
+                "apikey": "TON_API_KEY",
+                "Authorization": "Bearer TON_API_KEY",
+                "Prefer": "return=minimal"
+            }
+        }
+    );
+
+    if (response.ok) {
+        chargerAvis();
+    } else {
+        const erreur = await response.text();
+        console.error(erreur);
+        alert("❌ Impossible de supprimer cet avis.");
+    }
+}
     const response = await fetch(
         "https://zgrjcycwvgkhsmuzmsxp.supabase.co/rest/v1/avis?select=*&order=created_at.desc",
         {
